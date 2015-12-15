@@ -30,7 +30,7 @@ feature "Products Management" do
   end
   scenario "User views a list of products" do
   product = FactoryGirl.create(:product)
-  product2 = FacgoryGirl.create(:product)
+  product2 = FactoryGirl.create(:product)
 
   visit "/products"
 
@@ -40,14 +40,14 @@ feature "Products Management" do
   expect(page).to have_content(product.price)
 
   expect(page).to have_content(product2.name)
-  epxect(page).to have_content(product2.description)
+  expect(page).to have_content(product2.description)
   expect(page).to have_content(product2.image_url)
   expect(page).to have_content(product2.price)
   end
 
   scenario "User deletes a product" do
     product = FactoryGirl.create(:product)
-    product2 = FacortyGirld.create(:product)
+    product2 = FactoryGirl.create(:product)
 
     visit "/products"
     click_link "destroy_product_#{product2.id}"
@@ -57,6 +57,7 @@ feature "Products Management" do
     expect(page).to have_content(product.image_url)
     expect(page).to have_content(product.price)
 
+    save_and_open_page
     expect(page).to_not have_content(product2.name)
     expect(page).to_not have_content(product2.description)
     expect(page).to_not have_content(product2.image_url)

@@ -24,6 +24,7 @@ group :development, :test do
   gem 'guard-bundler'
   gem 'guard-rspec', require: false
   gem 'factory_girl_rails'
+  gem 'launchy'
   gem 'capybara'
   gem 'faker'
   gem 'bcrypt', '~> 3.1.7'
